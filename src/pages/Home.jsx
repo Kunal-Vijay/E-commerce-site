@@ -10,8 +10,8 @@ import Slider from "../components/Slider";
 function Home() {
     return (
         <div>
-            <Announcement/>
             <Navbar />
+            <Announcement/>
             <Slider/>
             <Categories/>
             <Products/>
