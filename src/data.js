@@ -76,3 +76,4 @@ export const popularProducts =[
 ];
 
 export const payment = {img:"/img/payment.png"};
+export const product = {img:"/img/denim-jacket.png"};
