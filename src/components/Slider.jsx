@@ -2,14 +2,17 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { sliderItems } from "../data";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+
   /* background-color: coral; */
   position: relative;
   overflow: hidden;
+  ${mobile({ width: "100vw", height: "120vw" })}
 `;
 const Arrow = styled.div`
   width: 50px;
@@ -33,7 +36,7 @@ const Wrapper = styled.div`
   height: 100%;
   display: flex;
   transition: 1.5s all ease;
-  transform: translateX(${props=>props.slideIndex*-100}vw);
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 const Slide = styled.div`
   width: 100vw;
@@ -41,6 +44,7 @@ const Slide = styled.div`
   display: flex;
   align-items: center;
   background-color: ${(props) => props.bg};
+  ${mobile({ width: "100%", height: "100%" })}
 `;
 const ImgContainer = styled.div`
   height: 100%;
@@ -53,30 +57,44 @@ const Image = styled.img`
 const InfoContainer = styled.div`
   flex: 1;
   padding: 50px;
+
+  ${mobile({ padding: "10px" })}
 `;
 const Title = styled.h1`
   font-size: 70px;
+  ${mobile({ fontSize: "24px" })}
 `;
 const Description = styled.p`
   margin: 50px 0px;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 3px;
+
+  ${mobile({
+    margin: "20px 0px",
+    fontSize: "12px",
+    fontWeight: "300",
+    letterSpacing: "1px",
+  })}
 `;
 const Button = styled.button`
   padding: 10px;
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
+  ${mobile({
+    padding: "5px ",
+    fontSize: "12px",
+  })}
 `;
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const handleClick = (direction) => {
     if (direction === "left") {
-        setSlideIndex(slideIndex>0?slideIndex-1:2);
-    }else{
-        setSlideIndex(slideIndex<2?slideIndex+1:0);
+      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
   return (

@@ -10,9 +10,12 @@ import {
 import React from "react";
 import styled from "styled-components";
 import { payment } from "../data";
-
+import { mobile } from "../responsive";
 const Container = styled.div`
   display: flex;
+  ${mobile({
+    flexDirection: "column",
+  })}
 `;
 const Left = styled.div`
   flex: 1;
@@ -39,12 +42,15 @@ const SocialIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right:10px;
+  margin-right: 10px;
 `;
 
 const Center = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({
+    display: "none",
+  })}
 `;
 const Title = styled.h3`
   margin-bottom: 30px;
@@ -66,6 +72,9 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({
+    backgroundColor: '#eadddd',
+  })}
 `;
 
 const ContactItem = styled.div`

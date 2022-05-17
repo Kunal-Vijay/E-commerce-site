@@ -77,6 +77,6 @@ export const popularProducts =[
 
 export const payment = {img:"/img/payment.png"};
 export const product = {img:"/img/denim-jacket.png"};
-export const reg_bg = {img:"/img/registerbg.png"};
+export const reg_bg = {img1:"/img/registerbg.png",img2:"/img/registerbg2.png"};
 export const login_bg = {img:"/img/loginbg.png"};
 export const cart = {img1:"/img/shoe.png",img2:"/img/tshirt.png"};
