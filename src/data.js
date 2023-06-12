@@ -26,17 +26,20 @@ export const categories =[
     {
         id:1,
         img:"/img/category1.png",
-        title:"SHIRT STYLE!"
+        title:"SHIRT STYLE!",
+        cat:"shirts"
     },
     {
         id:2,
         img:"/img/category2.png",
-        title:"LOUNGEWEAR LOVE"
+        title:"LOUNGEWEAR LOVE",
+        cat:"loungewear"
     },
     {
         id:3,
         img:"/img/category3.png",
-        title:"LIGHT JACKETS"
+        title:"LIGHT JACKETS",
+        cat:"jacket"
     }
 ];
 
