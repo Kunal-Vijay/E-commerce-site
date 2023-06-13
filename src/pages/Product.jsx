@@ -8,6 +8,8 @@ import { Add, Remove } from "@material-ui/icons";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -120,6 +122,7 @@ const Product = () => {
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
 
+  const dispatch = useDispatch();
 
   const handleQuantity = (type) => {
     if (type === "dec") {
@@ -129,6 +132,10 @@ const Product = () => {
     }
   };
 
+  const handleClick = () => {
+    // update cart
+    dispatch(addProduct({ ...product, quantity, color, size }));
+  };
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -157,11 +164,13 @@ const Product = () => {
             <Filter>
               <FilterTitle>Color</FilterTitle>
               {product.color &&
-                product.color.map((c) => <FilterColor color={c} key={c} onClick={()=>setColor(c)} />)}
+                product.color.map((c) => (
+                  <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+                ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize onChange={(e)=>setSize(e.target.value)}>
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
                 {product.size &&
                   product.size.map((s) => (
                     <FilterSizeOption key={s}>{s}</FilterSizeOption>
@@ -181,7 +190,7 @@ const Product = () => {
                 onClick={() => handleQuantity("inc")}
               />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

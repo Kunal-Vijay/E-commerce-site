@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { cart } from "../data";
 import { mobile } from "../responsive";
+import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -93,8 +94,8 @@ const PriceDetails = styled.div`
   justify-content: center;
   flex-direction: column;
   ${mobile({
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    justifyContent: "space-around",
   })};
 `;
 const ProductAmountContainer = styled.div`
@@ -113,7 +114,7 @@ const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
   ${mobile({
-    marginBottom: '20px'
+    marginBottom: "20px",
   })};
 `;
 
@@ -149,6 +150,7 @@ const Button = styled.button`
   font-weight: 600;
 `;
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
   return (
     <Container>
       <Navbar />
@@ -165,63 +167,42 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetails>
-                <Image src={cart.img1} />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> JESSIE THUNDER SHOES
-                  </ProductName>
-                  <ProductID>
-                    <b>ID:</b> 931824984753
-                  </ProductID>
-                  <ProductColor color="red" />
-                  <ProductSize>
-                    <b>Size:</b> 37.5
-                  </ProductSize>
-                </Details>
-              </ProductDetails>
-              <PriceDetails>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetails>
-            </Product>
+            {cart.products.map((product) => (
+              <Product>
+                <ProductDetails>
+                  <Image src={product.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> {product.title}
+                    </ProductName>
+                    <ProductID>
+                      <b>ID:</b> {product._id}
+                    </ProductID>
+                    <ProductColor color={product.color} />
+                    <ProductSize>
+                      <b>Size:</b> {product.size}
+                    </ProductSize>
+                  </Details>
+                </ProductDetails>
+                <PriceDetails>
+                  <ProductAmountContainer>
+                    <Add />
+                    <ProductAmount>{product.quantity}</ProductAmount>
+                    <Remove />
+                  </ProductAmountContainer>
+                  <ProductPrice>
+                    $ {product.price * product.quantity}
+                  </ProductPrice>
+                </PriceDetails>
+              </Product>
+            ))}
             <Hr />
-            <Product>
-              <ProductDetails>
-                <Image src={cart.img2} />
-                <Details>
-                  <ProductName>
-                    <b>Product:</b> RANGER T-SHIRT
-                  </ProductName>
-                  <ProductID>
-                    <b>ID:</b> 693167684753
-                  </ProductID>
-                  <ProductColor color="gray" />
-                  <ProductSize>
-                    <b>Size:</b> XL
-                  </ProductSize>
-                </Details>
-              </ProductDetails>
-              <PriceDetails>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>1</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 10</ProductPrice>
-              </PriceDetails>
-            </Product>
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$80</SummaryItemPrice>
+              <SummaryItemPrice>${cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -233,7 +214,7 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$80</SummaryItemPrice>
+              <SummaryItemPrice>${cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT NOW</Button>
           </Summary>
