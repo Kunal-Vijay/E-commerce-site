@@ -1,12 +1,15 @@
 import { Add, Remove } from "@material-ui/icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { cart } from "../data";
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
+import { userRequest } from "../requestMethods";
+import { useNavigate } from "react-router-dom";
+import CategoryItem from '../components/CategoryItem';
+
+const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -148,13 +151,29 @@ const Button = styled.button`
   background-color: black;
   color: white;
   font-weight: 600;
+  cursor: pointer;
 `;
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  
+  console.log("cart",cart);
+  
+  const handleCheckout = async (cart) => {
+    console.log("products",cart.products);
+    try{
+      const res = await userRequest.post("/checkout/payment", {
+        cartItems: cart.products,
+      });
+      if(res){
+        window.location.href=res.data.url;
+      }
+    }catch(err){
+      console.log(err);
+    }
+  }
   return (
     <Container>
       <Navbar />
-      <Announcement />
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
@@ -216,7 +235,7 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>${cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+              <Button onClick={()=>handleCheckout(cart)}>CHECKOUT NOW</Button>
           </Summary>
         </Bottom>
       </Wrapper>
