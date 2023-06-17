@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -89,6 +90,7 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
+  const navigate = useNavigate();
   const [slideIndex, setSlideIndex] = useState(0);
   const handleClick = (direction) => {
     if (direction === "left") {
@@ -97,6 +99,9 @@ const Slider = () => {
       setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
+  // setInterval(() => {
+  //   setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+  // }, 5000);
   return (
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
@@ -111,7 +116,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Description>{item.desc}</Description>
-              <Button>SHOW NOW</Button>
+              <Button onClick={()=>navigate(`/products/${item.title.split(" ")[0].toLowerCase()}`)}>SHOW NOW</Button>
             </InfoContainer>
           </Slide>
         ))}

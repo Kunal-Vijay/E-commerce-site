@@ -11,6 +11,7 @@ import React from "react";
 import styled from "styled-components";
 import { payment } from "../data";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 const Container = styled.div`
   display: flex;
   ${mobile({
@@ -67,6 +68,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   width: 50%;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
 
 const Right = styled.div`
@@ -89,10 +91,11 @@ const Payment = styled.img`
 `;
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Left>
-        <Logo>LAMA</Logo>
+        <Logo>BACI</Logo>
         <Description>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum optio
           reprehenderit sed nesciunt minima quo, magni quia deserunt similique
@@ -116,22 +119,22 @@ const Footer = () => {
       <Center>
         <Title>Useful Links</Title>
         <List>
-          <ListItem>Home</ListItem>
-          <ListItem>Cart</ListItem>
-          <ListItem>Men Fashion</ListItem>
-          <ListItem>Order Tracking</ListItem>
-          <ListItem>Women Fashion</ListItem>
-          <ListItem>My Account</ListItem>
-          <ListItem>Accessories</ListItem>
-          <ListItem>Terms</ListItem>
-          <ListItem>Wishlist</ListItem>
+          <ListItem onClick={()=>navigate("/")}>Home</ListItem>
+          <ListItem onClick={()=>navigate("/cart")}>Cart</ListItem>
+          <ListItem onClick={()=>navigate("/products/man")}>Men Fashion</ListItem>
+          <ListItem >Order Tracking</ListItem>
+          <ListItem onClick={()=>navigate("/products/woman")}>Women Fashion</ListItem>
+          <ListItem >My Account</ListItem>
+          <ListItem onClick={()=>navigate("/products/accessories")}>Accessories</ListItem>
+          <ListItem >Terms</ListItem>
+          <ListItem >Wishlist</ListItem>
         </List>
       </Center>
       <Right>
         <Title>Contact Us</Title>
         <ContactItem>
           <Room style={{ marginRight: "10px" }} />
-          20 Cooper Square, New York, NY 10003, USA.
+          IIIT, BHOPAL, 462003, India.
         </ContactItem>
         <ContactItem>
           <Phone style={{ marginRight: "10px" }} />
@@ -139,7 +142,7 @@ const Footer = () => {
         </ContactItem>
         <ContactItem>
           <Mail style={{ marginRight: "10px" }} />
-          contact@lama.dev
+          contact@twe.dev
         </ContactItem>
         <Payment src={payment.img} />
       </Right>
