@@ -53,7 +53,7 @@ const Button = styled.button`
   &:disabled{
     cursor: not-allowed;
     opacity: 0.5;
-    color: green;
+    color: teal;
   }
 `;
 
@@ -62,6 +62,7 @@ const Link = styled.a`
   margin: 5px 0px;
   text-decoration: underline;
   cursor: pointer;
+  color: black;
 `;
 
 const Error = styled.span`
@@ -89,8 +90,8 @@ const Login = () => {
           <Input placeholder="Password" type="password" onChange={(e)=>setPassword(e.target.value)}/>
           <Button onClick={handleLogin} disabled={isFetching}>LOGIN</Button>
           {error && <Error>Something went wrong...</Error>}
-          <Link>FORGOT PASSWORD?</Link>
-          <Link to="/register">CREATE A NEW ACCOUNT</Link>
+          {/* <Link>FORGOT PASSWORD?</Link> */}
+          <Link href="/register">CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
     </Container>

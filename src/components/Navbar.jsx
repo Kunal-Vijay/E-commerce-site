@@ -5,6 +5,8 @@ import { Badge } from "@material-ui/core";
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/userRedux";
 
 const Container = styled.div`
   height: 60px;
@@ -64,6 +66,12 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
+  const dispatch = useDispatch();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+  };
   return (
     <Container>
       <Wrapper>
@@ -79,8 +87,7 @@ const Navbar = () => {
           <Logo>The Wardrobe Edit</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem onClick={handleLogout}>LOGOUT</MenuItem>
           <Link to="/cart">
             <MenuItem>
               <Badge

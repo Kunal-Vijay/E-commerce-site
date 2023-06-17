@@ -15,14 +15,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<ProductList/>}/>
-        <Route path="/products/:category" element={<ProductList/>}/>
-        <Route path="/product/:id" element={<Product/>}/>
+        <Route path="/" element={!user ? <Navigate to="/login" replace /> :<Home/>}/>
+        <Route path="/products" element={!user ? <Navigate to="/login" replace /> :<ProductList/>}/>
+        <Route path="/products/:category" element={!user ? <Navigate to="/login" replace /> :<ProductList/>}/>
+        <Route path="/product/:id" element={!user ? <Navigate to="/login" replace /> :<Product/>}/>
         <Route path="/register" element={user?<Navigate to="/" replace /> :<Register/>}/>
         <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login />} />
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/success" element={<Success/>}/>
+        <Route path="/cart" element={!user ? <Navigate to="/login" replace /> :<Cart/>}/>
+        <Route path="/success" element={!user ? <Navigate to="/login" replace /> :<Success/>}/>
       </Routes>
     </Router>
   );
