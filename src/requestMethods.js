@@ -1,13 +1,16 @@
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-const TOKEN = process.env.REACT_APP_ADMIN_TOKEN;
+
 
 export const publicRequest = axios.create({
     baseURL: BASE_URL,
 });
 
-export const userRequest = axios.create({
-    baseURL: BASE_URL,
-    headers: { token: `${TOKEN}` },
-});
+export const userRequest = (TOKEN) => {
+    console.log("userRequest",TOKEN);
+    return axios.create({
+      baseURL: BASE_URL,
+      headers: { token: `Bearer ${TOKEN}` },
+    });
+  };

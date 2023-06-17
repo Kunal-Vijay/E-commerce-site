@@ -169,7 +169,7 @@ const Cart = () => {
   const handleCheckout = async (cart) => {
     console.log("products",cart.products);
     try{
-      const res = await userRequest.post("/checkout/payment", {
+      const res = await userRequest().post("/checkout/payment", {
         cartItems: cart.products,
       });
       if(res){
