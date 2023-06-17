@@ -159,7 +159,7 @@ const Product = () => {
         <InfoContainer>
           <Title>{product.title}</Title>
           <Description>{product.desc}</Description>
-          <Price>${product.price}</Price>
+          <Price>₹{product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
