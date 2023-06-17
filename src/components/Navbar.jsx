@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/userRedux";
 
@@ -65,6 +65,8 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [search, setSearch] = useState("");
   const quantity = useSelector((state) => state.cart.quantity);
   const dispatch = useDispatch();
 
@@ -72,19 +74,28 @@ const Navbar = () => {
     e.preventDefault();
     dispatch(logout());
   };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log(search);
+    if(search!==""){
+      navigate(`/products/${search}`);
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
         <Left>
           <Language>EN</Language>
           <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: "16px" }} />
+            <Input placeholder="Search" onChange={(e)=>setSearch(e.target.value)} />
+            <Search style={{ color: "gray", fontSize: "16px",cursor:"pointer" }} onClick={handleSearch} />
           </SearchContainer>
         </Left>
 
         <Center>
-          <Logo>The Wardrobe Edit</Logo>
+          <Logo>BACI</Logo>
         </Center>
         <Right>
           <MenuItem onClick={handleLogout}>LOGOUT</MenuItem>
