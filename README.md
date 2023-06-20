@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# [**Baci Shop**](https://bacishop.netlify.app/)
+Ecommerce Site using MERN stack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API Repo [https://github.com/Kunal-Vijay/ecommerce-api](https://github.com/Kunal-Vijay/ecommerce-api)
+
+[Visit&nbsp;the&nbsp;live&nbsp;website](https://bacishop.netlify.app/)
+
+---
+
+## Tech Stack
+- MERN
+- Redux / Redux-toolkit
+- Styled jsx
+- Material UI
+- Axios
+- JSON Web token
+- Cryptojs
+- Stripe
+
+## Required Environment Variables
+
+| VARIABLE   | Sample value                 |
+| ---------- | ---------------------------- |
+| REACT_APP_BASE_URL   | https://baci-ecommerce-api.onrender.com |
+| REACT_APP_STRIPE | stripe test key |
+
+
+## Installation Instructions
+
+1. Install _Node.js_
+2. Install _npm_
+3. If you plan to use a local instance of _MongoDB database_, install _MongoDB atlas_.
+4. Clone this github repo.
+5. In the local project directory, create a new file called "`.env`".
+6. Setup the environment variables as described above.
+7. Open the local project directory in a terminal, and run: `npm install`.
 
 ## Available Scripts
 
-In the project directory, you can run:
+### In the project directory, you can run:
 
-### `npm start`
+`cd client`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `npm run start`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the front-end client app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`cd server`
+Clone backend api from here [https://github.com/Kunal-Vijay/ecommerce-api](https://github.com/Kunal-Vijay/ecommerce-api)
+### `nodemon index.js`
 
-### `npm run build`
+Runs the back-end server app in the development mode.<br>
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser. Please note that the server requires an active instance of the **MongoDB database**. Either provide a _MongoDB atlas_ link in the `URI` environment variable, or use a local database, by placing its DATABASE in the same.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Application Screenshots
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/47028c96-52e2-467f-9a9d-812a01ad1043)
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/83a99462-d4ca-4082-a6cd-809946b4968a)
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/14abbf5e-15e1-4944-8925-e88cc7089070)
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/25802599-f5ff-44e8-8f90-403112502438)
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/90bb990d-10ce-4462-8904-b745c0a89fc8)
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/47fbb691-043f-4bf6-841a-bdde93153838)
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/808b6b34-9ec5-4f16-afce-91363d8d0add)
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/aa03901e-2122-4b4d-9eb1-73c9df71d3ca)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
