@@ -64,6 +64,12 @@ Open [http://localhost:5000](http://localhost:5000) to view it in the browser. P
 ![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/808b6b34-9ec5-4f16-afce-91363d8d0add)
 ![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/aa03901e-2122-4b4d-9eb1-73c9df71d3ca)
 
+### Stripe
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/616608c3-c540-4cc4-8139-14dc9d97dc47)
+![image](https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/24ad0531-eb28-4937-a22d-efe32a7eabde)
+
+
+
 
 
 
