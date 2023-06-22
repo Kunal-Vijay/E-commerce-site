@@ -5,6 +5,10 @@ API Repo [https://github.com/Kunal-Vijay/ecommerce-api](https://github.com/Kunal
 
 [Visit&nbsp;the&nbsp;live&nbsp;website](https://bacishop.netlify.app/)
 
+
+https://github.com/Kunal-Vijay/E-commerce-site/assets/79903746/3693a6c9-fd48-4dd5-9df4-c64da4338afb
+
+
 ---
 
 ## Tech Stack
